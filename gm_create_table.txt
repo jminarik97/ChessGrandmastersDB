@@ -1,4 +1,4 @@
-CREATE TABLE Grandmasters (
+CREATE TABLE Grandmaster (
     Fide_id int NOT NULL PRIMARY KEY,
     Name varchar(255),
     Federation varchar(255),
