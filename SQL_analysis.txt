@@ -1,33 +1,35 @@
+-- Select the ten highest rated Grandmasters
+SELECT TOP 10 *
+FROM Grandmaster
+ORDER BY Standard_Rating DESC;
+
+-- Total number of Grandmasters in the dataset
+SELECT COUNT(Fide_id)
+FROM Grandmaster;
+
+-- Total number of women who hold the Grandmaster title
+SELECT COUNT(Fide_id)
+FROM Grandmaster
+WHERE gender = 'F';
+
 -- Calculate the ages of each GM
-SELECT Grandmasters.Name, YEAR(GETDATE()) - Year_of_birth AS Age
-FROM Grandmasters
+SELECT Grandmaster.Name, YEAR(GETDATE()) - Year_of_birth AS Age
+FROM Grandmaster
 ORDER BY age DESC;
 
--- Calculate the average age GM age
+-- Calculate the average Grandmaster's age
 SELECT AVG(YEAR(GETDATE()) - Year_of_birth) AS 'Average Age'
-FROM Grandmasters;
+FROM Grandmaster;
 
--- Calculate the average age GM age per federation
+-- Calculate the average GM age per federation
 SELECT Federation, AVG(YEAR(GETDATE()) - Year_of_birth) AS 'Average Age'
-FROM Grandmasters
+FROM Grandmaster
 GROUP BY Federation
 ORDER BY 'Average Age' ASC;
 
 -- Total count of Grandmasters per federation
 SELECT Federation, COUNT(Fide_id) AS 'GM Count'
-FROM Grandmasters
+FROM Grandmaster
 GROUP BY Federation
 ORDER BY 'GM Count' DESC;
-
-
-
-
-
-
-
-
-
-
-
-
 
